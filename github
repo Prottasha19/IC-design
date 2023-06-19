@@ -1,0 +1,8 @@
+#!/bin/bash
+
+filename=$1
+comments="$2"
+
+git add "$filename"
+git commit -m "$comments"
+git push
