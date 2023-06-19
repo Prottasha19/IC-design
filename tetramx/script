@@ -1,0 +1,7 @@
+export PATH="/usrf01/prog/synopsys/txs/R-2020.09-SP4/bin:${PATH}"
+tmax
+
+add_faults -all
+run_atpg -auto
+
+write_patterns my_adder_pattern.v -internal -format binary
