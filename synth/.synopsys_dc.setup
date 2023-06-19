@@ -1,0 +1,19 @@
+define_design_lib work -path ./tool/work
+
+set_app_var  view_log_file        ./log/synth_view.log
+set_app_var  sh_command_log_file  ./log/synth_sh.log
+set_app_var  filename_log_file    ./log/synth_file.log
+
+set_app_var search_path       [concat ./cmd/  [get_app_var search_path] ] 
+
+set library_path "../../../0_FreePDK45/LIB/"
+set library_name "NangateOpenCellLibrary_typical_ccs_scan.db"
+
+set_app_var target_library    $library_name
+set_app_var link_library      [concat $library_name dw_foundation.sldb "*"]
+set_app_var search_path       [concat $library_path [get_app_var search_path] ]
+set_app_var synthetic_library [list dw_foundation.sldb]
+set_app_var symbol_library    [list class.sdb]
+
+set_app_var vhdlout_use_packages { ieee.std_logic_1164.all  NangateOpenCellLibrary.Components.all }
+set_app_var vhdlout_write_components FALSE
